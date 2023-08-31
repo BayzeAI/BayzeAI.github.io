@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "bayze-gems-api": "^0.1.3"
+  },
+  "scripts": {
+    "tsc": "tsc --build --verbose",
+    "build": "rm index-bundle.js && node esbuild.config.js",
+    "localhost": "npx http-server"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.54",
+    "typescript": "^4.5.4"
+  }
+}
