@@ -4,14 +4,19 @@ const startButton = document.querySelector("#start");
 const playButton = document.querySelector("#play");
 const scoreBox = document.querySelector("#scorebox");
 const finishButton = document.querySelector("#finish");
+const badgesButton = document.querySelector("#badges");
+const versionSpan = document.querySelector("#version");
 
 startButton.addEventListener("click", start);
 playButton.addEventListener("click", score);
 finishButton.addEventListener("click", finish);
+badgesButton.addEventListener("click", badges);
+versionSpan.innerText = GEMS.version();
 
 // init and first event
 const apiKey = "i2slulN)U%7xvMoVACLSEYogOekNQoWE";
 const appId = "37675ac8-c0c0-42e9-8291-0f9529df5d47";
+GEMS.debug(true);
 GEMS.init({apiKey:apiKey, appId:appId, useCookie: true}).then(()=>{
     GEMS.event("Demo-GamePage");
     startButton.disabled = false;
@@ -43,3 +48,8 @@ function finish() {
     finishButton.disabled = true;
     startButton.disabled = false;
 }
+
+function badges() {
+    GEMS.displayAllBadges()
+}
+

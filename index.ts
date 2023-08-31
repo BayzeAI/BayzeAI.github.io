@@ -6,10 +6,14 @@ const startButton = document.querySelector("#start")! as HTMLButtonElement;
 const playButton = document.querySelector("#play")! as HTMLButtonElement;
 const scoreBox = document.querySelector("#scorebox")! as HTMLButtonElement;
 const finishButton = document.querySelector("#finish")! as HTMLButtonElement;
+const badgesButton = document.querySelector("#badges")! as HTMLButtonElement;
+const versionSpan = document.querySelector("#version")! as HTMLSpanElement;
 
 startButton.addEventListener("click", start);
 playButton.addEventListener("click", score);
 finishButton.addEventListener("click", finish);
+badgesButton.addEventListener("click", badges);
+versionSpan.innerText = GEMS.version();
 
 // init and first event
 const apiKey = "i2slulN)U%7xvMoVACLSEYogOekNQoWE";
@@ -44,4 +48,8 @@ function finish() {
     scoreBox.disabled = true;
     finishButton.disabled = true;
     startButton.disabled = false;
+}
+
+function badges() {
+    GEMS.displayAllBadges()
 }
