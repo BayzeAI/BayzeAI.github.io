@@ -52,7 +52,8 @@
     </style>
     <div class="GEMS-achievement-frame">
         <h2 class="GEMS-achievement-header">
-            I just unlocked an achievement<span id="app"></span>:
+            <span id="title">I just unlocked an achievement</span>
+            <span id="app"></span>:
         </h2>
         <img class="GEMS-achievement-image" src="https://d2c8cl134xhhwp.cloudfront.net/rocket.png">
         <h3 class="GEMS-achievement-title">
@@ -74,8 +75,8 @@
             app = " on "+usp.get("app")+"!";
         }
 
-        const header = document.querySelector(".GEMS-achievement-header");
-        const title = document.querySelector(".GEMS-achievement-title");
+        const header = document.querySelector("#app");
+        const title = document.querySelector("#title");
         const image = document.querySelector(".GEMS-achievement-image");
 
         header.innerText = app;
