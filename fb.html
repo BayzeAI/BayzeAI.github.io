@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8" />
-    <title>Achievement unlocked!</title>
+    <title>Achievement unlocked</title>
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="Achievement unlocked!" />
     <meta property="og:description"   content="Your description" />
@@ -82,15 +82,15 @@
         image.src = achievement.image;
         desc.innerText = achievement.title;
 
-        const metaDesc = document.querySelector("[property='og:description']");
-        const metaImage = document.querySelector("[property='og:image']");
+        // const metaDesc = document.querySelector("[property='og:description']");
+        // const metaImage = document.querySelector("[property='og:image']");
 
-        if (app !== "!") {
-            metaDesc.setAttribute("content", achievement.app+": "+achievement.title);
-        } else {
-            metaDesc.setAttribute("content", achievement.title);
-        }
-        metaImage.setAttribute("content", achievement.image);
+        // if (app !== "!") {
+        //     metaDesc.setAttribute("content", achievement.app+": "+achievement.title);
+        // } else {
+        //     metaDesc.setAttribute("content", achievement.title);
+        // }
+        // metaImage.setAttribute("content", achievement.image);
     </script>
 </body>
 </html>
