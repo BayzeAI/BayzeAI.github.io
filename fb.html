@@ -52,11 +52,11 @@
     </style>
     <div class="GEMS-achievement-frame">
         <h2 class="GEMS-achievement-header">
-            <span id="title">I just unlocked an achievement</span>
-            <span id="app"></span>:
+            I just unlocked an achievement
+            <span id="app"></span>
         </h2>
         <img class="GEMS-achievement-image" src="https://d2c8cl134xhhwp.cloudfront.net/rocket.png">
-        <h3 class="GEMS-achievement-title">
+        <h3 class="GEMS-achievement-description">
             Some achievement!
         </h3>
     </div>
@@ -76,12 +76,12 @@
         }
 
         const header = document.querySelector("#app");
-        const title = document.querySelector("#title");
         const image = document.querySelector(".GEMS-achievement-image");
+        const desc = document.querySelector(".GEMS-achievement-description");
 
         header.innerText = app;
-        title.innerText = achievement.title;
         image.src = achievement.image;
+        desc.innerText = achievement.title;
 
         const metaDesc = document.querySelector("[property='og:description']");
         const metaImage = document.querySelector("[property='og:image']");
