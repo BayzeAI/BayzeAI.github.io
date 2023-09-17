@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <title>Achievement unlocked!</title>
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Achievement unlocked!" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="https://d2c8cl134xhhwp.cloudfront.net/rocket.png" />
 </head>
 <body>
     <style>
@@ -19,9 +23,14 @@
             font-family: Arial, Helvetica, sans-serif;
         }
         
+        .GEMS-achievement-header {
+            margin: 10px;
+        }
+
         .GEMS-achievement-title {
             margin: 10px;
         }
+        
         
         .GEMS-achievement-image {
             height: 70%;
@@ -42,13 +51,46 @@
         }
     </style>
     <div class="GEMS-achievement-frame">
-        <h2 class="GEMS-achievement-title">
-            I just unlocked an achievement on Super-Duper:
+        <h2 class="GEMS-achievement-header">
+            I just unlocked an achievement<span id="app"></span>:
         </h2>
         <img class="GEMS-achievement-image" src="https://d2c8cl134xhhwp.cloudfront.net/rocket.png">
         <h3 class="GEMS-achievement-title">
             Some achievement!
         </h3>
     </div>
+    <script>
+        let achievement = {
+                title: "Sorry, we couldn't figure out what achievement",
+                image: "https://d2c8cl134xhhwp.cloudfront.net/rocket.png"
+            };
+        let app = "!";
+
+        const usp = new URLSearchParams(window.location.search);
+        if (usp.has("achievement")) {
+            achievement = JSON.parse(usp.get("achievement"));
+        }
+        if (usp.has("app")) {
+            app = " on "+usp.get("app")+"!";
+        }
+
+        const header = document.querySelector(".GEMS-achievement-header");
+        const title = document.querySelector(".GEMS-achievement-title");
+        const image = document.querySelector(".GEMS-achievement-image");
+
+        header.innerText = app;
+        title.innerText = achievement.title;
+        image.src = achievement.image;
+
+        const metaDesc = document.querySelector("[property='og:description']");
+        const metaImage = document.querySelector("[property='og:image']");
+
+        if (app !== "!") {
+            metaDesc.setAttribute("content", achievement.app+": "+achievement.title);
+        } else {
+            metaDesc.setAttribute("content", achievement.title);
+        }
+        metaImage.setAttribute("content", achievement.image);
+    </script>
 </body>
 </html>
